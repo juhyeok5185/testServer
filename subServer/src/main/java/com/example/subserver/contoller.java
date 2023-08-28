@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -17,20 +19,36 @@ public class contoller {
         return "main";
     }
 
-//    @PostMapping("/main")
-//    public ResponseEntity<String> test() {
-//        System.out.println(requestBody);
-//        Integer id = (Integer) requestBody.get("id");
-//        String username = (String) requestBody.get("username");
-//        String password = (String) requestBody.get("password");
-//        String name = (String) requestBody.get("name");
+    @GetMapping("/apiTest")
+    public ResponseEntity<String> apiTest(dto dto) {
+
+        System.out.println(dto);
+
+        return ResponseEntity.ok("ddd");
+    }
+
+//    @PostMapping("/apiTest")
+//    public ResponseEntity<String> apiTest(
+//            @RequestParam("name") String name,
+//            @RequestParam("username") String username,
+//            @RequestParam("password") String password,
+//            @RequestParam("id") String id,
+//            @RequestParam("files") MultipartFile[] files) {
 //
-//        System.out.println("id: " + id);
-//        System.out.println("username: " + username);
-//        System.out.println("password: " + password);
-//        System.out.println("name: " + name);
+//        // 받아온 데이터와 파일을 처리
+//        System.out.println("Name: " + name);
+//        System.out.println("Username: " + username);
+//        System.out.println("Password: " + password);
+//        System.out.println("ID: " + id);
 //
-//        return ResponseEntity.ok("ddd");
+//        for (MultipartFile file : files) {
+//            if (!file.isEmpty()) {
+//                String originalFilename = file.getOriginalFilename();
+//                System.out.println("Original Filename: " + originalFilename);
+//            }
+//        }
+//
+//        return ResponseEntity.ok("File uploaded successfully.");
 //    }
 }
 

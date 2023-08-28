@@ -4,27 +4,34 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="/js/jsUtil.js"></script>
+    <script src="/js/regularExpression.js"></script>
 </head>
 <body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+    });
+</script>
 <form id="form">
-    <input id="ti" class="name" name="1" value="1">
-    <input class="ti" name="username" value="2">
-    <input class="ti" name="password"  value="3">
-    <input class="ti" name="id"  value="4">
+    <input class="name" name="name" value="1">
+    <input class="username" name="username" value="2">
+    <input class="password" name="password"  value="3">
+    <input class="id" name="id"  value="4">
+    <input type="file" name="files">
+    <input type="file" name="files">
+    <input type="file" name="files">
+    <input type="file" name="files">
     <button type="button" onclick="buttonTest();">가즈앙</button>
 </form>
 </body>
 <script>
 
-    // function buttonTest() {
-    //     const requestBody = { username: 'dd', id: 'dd', password: 'dd', name: 'dd' };
-    //
-    //     ApiRequestBody('/main', 'post', requestBody);
-    // }
-    //
-
-
-
+    async function buttonTest() {
+        const formData = new FormData(Find('#form'));
+        const data = await APIFormData('/apiTest' , 'post' , formData);
+        console.log(data)
+        getDate()
+    }
 </script>
 
 </html>
